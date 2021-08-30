@@ -1,7 +1,9 @@
 {
   "name": "server-explorer",
-  "private": true,
+  "author": "Lucas Johnson <contact@lucasjohnson.co.nz> (https://lucasjohnson.co.nz/)",
   "description": "Login to find a server near you!",
+  "homepage": "https://server-explorer.vercel.app",
+  "private": true,
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
