@@ -1,7 +1,7 @@
 {
   "name": "server-explorer",
   "private": true,
-  "description": "",
+  "description": "Login to find a server near you!",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
