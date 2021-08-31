@@ -1,13 +1,18 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import Form from './Form';
+import Portal from './Portal';
 
 const Layout: React.FC = ({ children }) => (
-  <React.Fragment>
+  <div className="app" aria-hidden="true">
     <Header />
     {children}
     <Footer />
-  </React.Fragment>
+    <Portal>
+      <Form />
+    </Portal>
+  </div>
 );
 
 export default Layout;

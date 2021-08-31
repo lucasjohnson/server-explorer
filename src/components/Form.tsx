@@ -4,7 +4,7 @@ import Button from './Button';
 import Copy from '../data/copy.json';
 
 const Form: React.FC = () => (
-  <form>
+  <form className="form">
     <Input
       name={Copy.form.usernameInput.toLowerCase()}
       setUseState={null}
