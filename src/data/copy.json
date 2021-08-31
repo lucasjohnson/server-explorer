@@ -1,0 +1,14 @@
+{
+  "header": {
+    "siteTitle": "Server Explorer"
+  },
+  "form": {
+    "usernameInput": "Username",
+    "passwordInput": "Password",
+    "submitButton": "Submit"
+  },
+  "footer": {
+    "githubTitle": "Lucas' GitHub profile",
+    "githubUrl": "https://github.com/lucasjohnson/server-explorer"
+  }
+}
