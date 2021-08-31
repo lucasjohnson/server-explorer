@@ -1,8 +1,13 @@
 import React from 'react';
+import ThemeContext from '../context/ThemeContext';
 
 const Main: React.FC = () => {
   return (
-    <main className="main"></main>
+    <ThemeContext.Consumer>
+      {({}) => (
+          <main className="main"></main>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 
