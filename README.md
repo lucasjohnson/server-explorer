@@ -2,7 +2,6 @@
 
 ## TODO
 
-- [ ] Login form
 - [ ] Context config
 - [ ] Form state
 - [ ] API logic

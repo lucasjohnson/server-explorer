@@ -1,5 +1,11 @@
-import React from "react"
+import React from 'react';
+import Layout from '../components/Layout';
+import Main from '../components/Main';
 
-export default function Home(): React.FC {
-  return <div>Hello world!</div>
-}
+const Home: React.FC = () => (
+  <Layout>
+    <Main />
+  </Layout>
+);
+
+export default Home;
