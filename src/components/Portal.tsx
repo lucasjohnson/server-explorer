@@ -1,23 +1,36 @@
-import React from "react";
-import ReactDOM from "react-dom";
-const modalRoot = document.getElementById("portal");
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-class Portal extends React.Component<any, any> {
-  el: HTMLElement = document.createElement('div');
+const portalRoot = typeof document !== `undefined`
+  && document.getElementById('portal');
 
-  componentDidMount() {
+export default class extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.el = typeof document !== `undefined` && document.createElement('div');
     this.el.classList.add('overlay');
-    this.el.setAttribute('aria-hidden', 'false');
-    modalRoot?.appendChild(this.el);
+    portalRoot.setAttribute('aria-hidden', 'false');
   }
 
-  componentWillUnmount() {
-    modalRoot?.removeChild(this.el);
+  componentDidMount = (): void => {
+    portalRoot.appendChild(this.el);
+  }
+
+  componentWillUnmount = (): void => {
+    portalRoot.removeChild(this.el);
   }
 
   render() {
-    return ReactDOM.createPortal(this.props.children, this.el);
+    const { children } = this.props;
+
+    if (this.el) {
+      return ReactDOM.createPortal(
+        children,
+        this.el
+      )
+    } else {
+      return null;
+    }
   }
 }
-
-export default Portal;
