@@ -1613,7 +1613,14 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
+"@types/react-dom@^17.0.9":
+  version "17.0.9"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.9.tgz#441a981da9d7be117042e1a6fd3dac4b30f55add"
+  integrity sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^17.0.19":
   version "17.0.19"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.19.tgz#8f2a85e8180a43b57966b237d26a29481dacc991"
   integrity sha512-sX1HisdB1/ZESixMTGnMxH9TDe8Sk709734fEQZzCV/4lSu9kJCPbo2PbTRoZM+53Pp0P10hYVyReUueGwUi4A==
@@ -3025,9 +3032,9 @@ content-type@^1.0.4, content-type@~1.0.4:
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
 contentful-management@^7.5.1:
-  version "7.33.1"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.33.1.tgz#2dd0ed4cada00c6aa1d4250aa97fc976f8221fa4"
-  integrity sha512-vpH/0KoUOdbeqE2bYvZeTCcJKX2wCM0CM1Y1Oe2GLpkUFQMZQiqEmp+nmMwwgueMKKeKuQUywzOPoF86tIe7DQ==
+  version "7.34.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.34.0.tgz#5aadc8c3627e1f65a22f3896fd2a76cebd91f6c8"
+  integrity sha512-u1kIEllGeI7pi5JowiD9NqyhPBpEZ5kG3Oz1W1U+ygZiYH46VG4a/k9LoH8XkDaFIRpCP38GpWlUGwcR7JUqxA==
   dependencies:
     "@types/json-patch" "0.0.30"
     axios "^0.21.0"
@@ -3037,9 +3044,9 @@ contentful-management@^7.5.1:
     type-fest "^0.20.2"
 
 contentful-sdk-core@^6.8.0:
-  version "6.8.1"
-  resolved "https://registry.yarnpkg.com/contentful-sdk-core/-/contentful-sdk-core-6.8.1.tgz#bc91dc7743a3d918903854bc7878387c7e06c7e6"
-  integrity sha512-gck+hQ71ST/39rzqW8zgJsHjpw+EDcpuVXg9rVJRO/AN4RrFi8gQv8R8ifFpVeNkqJdTA7wDFiYL3YykkoG7GA==
+  version "6.8.2"
+  resolved "https://registry.yarnpkg.com/contentful-sdk-core/-/contentful-sdk-core-6.8.2.tgz#102a4af5ebde5672c5e6950af9b69319ad4579df"
+  integrity sha512-cermZK5M01e2Ox+Eu5TkIjDxjTM8IzT9yEpDdGk5kgYhY/frw4kwVyXINjK5nvW7wOjuSNSTmObjqtCD0GIa/g==
   dependencies:
     fast-copy "^2.1.0"
     qs "^6.9.4"
@@ -3700,9 +3707,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.811:
-  version "1.3.822"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.822.tgz#7036edc7f669b0aa79e9801dc5f56866c6ddc0b2"
-  integrity sha512-k7jG5oYYHxF4jx6PcqwHX3JVME/OjzolqOZiIogi9xtsfsmTjTdie4x88OakYFPEa8euciTgCCzvVNwvmjHb1Q==
+  version "1.3.824"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.824.tgz#9f85cc826c70b12180009d461e3b19c8121a56d2"
+  integrity sha512-Fk+5aD0HDi9i9ZKt9n2VPOZO1dQy7PV++hz2wJ/KIn+CvVfu4fny39squHtyVDPuHNuoJGAZIbuReEklqYIqfA==
 
 emoji-regex@^7.0.1:
   version "7.0.3"
@@ -8145,7 +8152,7 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier@2.3.2, prettier@^2.3.2:
+prettier@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
   integrity sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==
@@ -10583,9 +10590,9 @@ xss@^1.0.6:
     cssfilter "0.0.10"
 
 xstate@^4.11.0, xstate@^4.9.1:
-  version "4.23.1"
-  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.23.1.tgz#a85ce0ca4ad9737f1497e2da7a3abc6a5697fbcd"
-  integrity sha512-8ZoCe8d6wDSPfkep+GBgi+fKAdMyXcaizoNf5FKceEhlso4+9n1TeK6oviaDsXZ3Z5O8xKkJOxXPNuD4cA9LCw==
+  version "4.23.2"
+  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.23.2.tgz#1b1f14f0c8872984a0824a01e411658ee36a9a90"
+  integrity sha512-r6l+8rA7jCf3gF6XItoK/CnSrvpU5kPPBUBY+/fe3IuEtqwEHXUvhyL4kKg7uc6yDdBeJ6T/dyKajdxTePggGA==
 
 xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.2"

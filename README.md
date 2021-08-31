@@ -2,8 +2,6 @@
 
 ## TODO
 
-- [ ] TypeScript config
-- [ ] ESLint config
 - [ ] Login form
 - [ ] Context config
 - [ ] Form state
