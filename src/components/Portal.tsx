@@ -9,12 +9,12 @@ export default class extends React.Component {
     super(props);
 
     this.el = typeof document !== `undefined` && document.createElement('div');
-    this.el.classList.add('overlay');
-    portalRoot.setAttribute('aria-hidden', 'false');
   }
 
   componentDidMount = (): void => {
     portalRoot.appendChild(this.el);
+    this.el.classList.add('overlay');
+    portalRoot.setAttribute('aria-hidden', 'false');
   }
 
   componentWillUnmount = (): void => {

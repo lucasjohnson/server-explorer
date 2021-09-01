@@ -2,8 +2,6 @@
 
 ## TODO
 
-- [ ] Context config
-- [ ] Form state
 - [ ] API logic
 - [ ] Form error handling
 - [ ] Polyfils for IE11
