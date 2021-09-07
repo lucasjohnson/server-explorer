@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Cookie, CookieName, Credentials, Errors, QueryApi, Server } from '../utils/index';
+import { Aria, Cookie, CookieName, Credentials, Errors, QueryApi, Server } from '../utils/index';
 
 const dafaultState = {
   errors: {username: false, password: false},
@@ -39,9 +39,15 @@ const ThemeProvider: React.FC = ({ children }) => {
     setSubmitted(false);
   };
 
+  const handleDataQuery = (): void => {
+    const portal: HTMLElement = document.getElementById('portal');
+    portal.setAttribute(Aria.HIDDEN, Aria.TRUE);
+    QueryApi.data(setData);
+  };
+
   useEffect(() => {
     Cookie.getToken().length > 0
-      ? QueryApi.data(setData)
+      ? handleDataQuery()
       : handleTokenQuery();
   }, [submitted]);
 
