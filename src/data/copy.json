@@ -7,7 +7,8 @@
     "usernameError": "Please enter a username",
     "passwordInput": "Password",
     "passwordError": "Please enter a password",
-    "submitButton": "Submit"
+    "submitButton": "Submit",
+    "authenticationError": "Your credentials are not valid. Please try again."
   },
   "footer": {
     "githubTitle": "Lucas' GitHub profile",

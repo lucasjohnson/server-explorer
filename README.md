@@ -2,7 +2,6 @@
 
 ## TODO
 
-- [ ] API logic
 - [ ] Polyfils for IE11
 - [ ] Display data
 - [ ] Filter data

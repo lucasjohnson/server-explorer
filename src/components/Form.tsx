@@ -26,8 +26,10 @@ const Form: React.FC = () => {
 
   return (
     <ThemeContext.Consumer>
-      {({ errors, handleFormSubmit }) => (
+      {({ errors, authentication, handleFormSubmit }) => (
         <form className="form">
+          <p>username: tesonet</p>
+          <p>password: partyanimal</p>
           <Input
             name={Copy.form.usernameInput.toLowerCase()}
             setOnChange={handleChange}
@@ -46,6 +48,7 @@ const Form: React.FC = () => {
             label={Copy.form.submitButton}
             setOnClick={(event) => handleFormSubmit(event, data)}
           />
+          <span aria-hidden={!authentication}>{Copy.form.authenticationError}</span>
         </form>
       )}
     </ThemeContext.Consumer>

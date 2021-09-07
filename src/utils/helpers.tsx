@@ -29,7 +29,7 @@ export class Cookie {
 };
 
 export class QueryApi {
-  public static token = (credentials: string[]): void => {
+  public static token = (credentials: string[], setAuthentication: Function): void => {
     fetch("https://playground.tesonet.lt/v1/tokens", {
       method: "POST",
       headers: {
@@ -38,8 +38,13 @@ export class QueryApi {
       body: JSON.stringify(credentials)
     })
       .then(response => response.json())
-      .then(data => {
-        Cookie.set(CookieName.TOKEN, data.token, 1);
+      .then(response => {
+        if (response.message === 'Unauthorized') {
+          setAuthentication(true);
+        } else {
+          setAuthentication(false);
+          Cookie.set(CookieName.TOKEN, response.token, 1);
+        };
       })
       .catch(error => console.warn(error));
   };
