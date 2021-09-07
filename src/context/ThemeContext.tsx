@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Cookie from '../utils/cookie';
-import { CookieName } from '../enums/index';
+import { Cookie, CookieName, Credentials, Errors, QueryApi, Server } from '../utils/index';
 
 const dafaultState = {
   errors: {username: false, password: false},
@@ -9,20 +8,11 @@ const dafaultState = {
 
 const ThemeContext = React.createContext(dafaultState);
 
-interface Credentials {
-  username: string;
-  password: string;
-};
-
-interface Errors {
-  username: boolean;
-  password: boolean;
-};
-
 const ThemeProvider: React.FC = ({ children }) => {
   const [credentials, setCredentials] = useState<Credentials>({username: '', password: ''});
   const [errors, setErrors] = useState<Errors>({username: false, password: false});
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [data, setData] = useState<Array<Server | null>>([]);
 
   // username: tesonet
   // password: partyanimal
@@ -41,22 +31,18 @@ const ThemeProvider: React.FC = ({ children }) => {
     setSubmitted(true);
   };
 
-  useEffect(() => {
+  const handleTokenQuery = (): void => {
     if (submitted && credentials.username.length > 0 && credentials.password.length > 0) {
-      fetch("https://playground.tesonet.lt/v1/tokens", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(credentials)
-      })
-        .then(response => response.json())
-        .then(data => {
-          Cookie.set(CookieName.TOKEN, data.token, 1);
-        })
+      QueryApi.token(credentials);
     };
 
     setSubmitted(false);
+  };
+
+  useEffect(() => {
+    Cookie.getToken().length > 0
+      ? QueryApi.data(setData)
+      : handleTokenQuery();
   }, [submitted]);
 
   return (
