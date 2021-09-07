@@ -10,6 +10,10 @@
     "submitButton": "Submit",
     "authenticationError": "Your credentials are not valid. Please try again."
   },
+  "main": {
+    "titleName": "Server Name",
+    "titleDistance": "Server Distance"
+  },
   "footer": {
     "githubTitle": "Lucas' GitHub profile",
     "githubUrl": "https://github.com/lucasjohnson/server-explorer"

@@ -1,14 +1,10 @@
 import React from 'react';
-import ThemeContext from '../context/ThemeContext';
+import Servers from './Servers';
 
-const Main: React.FC = () => {
-  return (
-    <ThemeContext.Consumer>
-      {({}) => (
-          <main className="main"></main>
-      )}
-    </ThemeContext.Consumer>
-  );
-};
+const Main: React.FC = () => (
+  <main className="main">
+    <Servers />
+  </main>
+);
 
 export default Main;

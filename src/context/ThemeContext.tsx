@@ -4,7 +4,8 @@ import { Aria, Cookie, CookieName, Credentials, Errors, QueryApi, Server } from 
 const dafaultState = {
   errors: {username: false, password: false},
   authentication: true,
-  handleFormSubmit: (): void => {}
+  handleFormSubmit: (): void => {},
+  data: null
 };
 
 const ThemeContext = React.createContext(dafaultState);
@@ -56,7 +57,8 @@ const ThemeProvider: React.FC = ({ children }) => {
       value={{
         errors,
         authentication,
-        handleFormSubmit
+        handleFormSubmit,
+        data
       }}
     >
       { children }
