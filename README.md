@@ -3,10 +3,10 @@
 ## TODO
 
 - [ ] API logic
-- [ ] Form error handling
 - [ ] Polyfils for IE11
 - [ ] Display data
 - [ ] Filter data
+- [ ] Typesetting
 - [ ] Tests
 - [ ] Styling
 - [ ] Readme
