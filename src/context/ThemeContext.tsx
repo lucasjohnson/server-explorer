@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Cookie from '../utils/cookie';
+import { CookieName } from '../enums/index';
 
 const dafaultState = {
   errors: {username: false, password: false},
@@ -21,6 +23,9 @@ const ThemeProvider: React.FC = ({ children }) => {
   const [credentials, setCredentials] = useState<Credentials>({username: '', password: ''});
   const [errors, setErrors] = useState<Errors>({username: false, password: false});
   const [submitted, setSubmitted] = useState<boolean>(false);
+
+  // username: tesonet
+  // password: partyanimal
 
   const handleFormSubmit = (event: MouseEvent, data: Credentials): void => {
     event.preventDefault();
@@ -47,11 +52,8 @@ const ThemeProvider: React.FC = ({ children }) => {
       })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          Cookie.set(CookieName.TOKEN, data.token, 1);
         })
-        .catch(error => {
-          console.error(error);
-        });
     };
 
     setSubmitted(false);
