@@ -4,15 +4,15 @@ import Copy from '../data/copy.json';
 
 const Servers: React.FC = () => (
   <ThemeContext.Consumer>
-    {({ data }) => (
+    {({ servers }) => (
       <section className="servers">
         <h2 className="servers-title">
           <span className="servers-title-name">{Copy.main.titleName}</span>
           <span className="servers-title-distance">{Copy.main.titleDistance}</span>
         </h2>
         <ul className="servers-list">
-          {data.length > 0 &&
-            data.map((server, key) => (
+          {servers.length > 0 &&
+            servers.map((server, key) => (
               <li className="servers-item" key={key}>
                 <span className="servers-name">{server.name}</span>
                 <span className="servers-distance">{server.distance}</span>

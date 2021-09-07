@@ -5,7 +5,8 @@ const dafaultState = {
   errors: {username: false, password: false},
   authentication: true,
   handleFormSubmit: (): void => {},
-  data: null
+  handleServerSort: (): void => {},
+  servers: [],
 };
 
 const ThemeContext = React.createContext(dafaultState);
@@ -16,6 +17,7 @@ const ThemeProvider: React.FC = ({ children }) => {
   const [authentication, setAuthentication] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [data, setData] = useState<Array<Server | null>>([]);
+  const [servers, setServers] = useState<Array<Server | null>>([]);
 
   const handleFormSubmit = (event: MouseEvent, data: Credentials): void => {
     event.preventDefault();
@@ -52,13 +54,18 @@ const ThemeProvider: React.FC = ({ children }) => {
       : handleTokenQuery();
   }, [submitted]);
 
+  const handleServerSort = (event: MouseEvent): void => {
+    console.log(event.target.value);
+  };
+
   return (
     <ThemeContext.Provider
       value={{
         errors,
         authentication,
         handleFormSubmit,
-        data
+        handleServerSort,
+        servers,
       }}
     >
       { children }
