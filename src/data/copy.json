@@ -4,7 +4,9 @@
   },
   "form": {
     "usernameInput": "Username",
+    "usernameError": "Please enter a username",
     "passwordInput": "Password",
+    "passwordError": "Please enter a password",
     "submitButton": "Submit"
   },
   "footer": {
