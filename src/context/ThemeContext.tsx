@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Aria, Cookie, CookieName, Credentials, Errors, QueryApi, Server, Sort } from '../utils/index';
+import { Aria, Cookie, Credentials, Errors, QueryApi, Server, Sort } from '../utils/index';
 
 const dafaultState = {
   errors: {username: false, password: false},
@@ -16,8 +16,8 @@ const ThemeProvider: React.FC = ({ children }) => {
   const [errors, setErrors] = useState<Errors>({username: false, password: false});
   const [authentication, setAuthentication] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
-  const [servers, setServers] = useState<Array<Server | null>>([]);
-  const [sorted, setSorted] = useState<Array<Server | null>>([]);
+  const [servers, setServers] = useState<(Server | null)[]>([]);
+  const [sorted, setSorted] = useState<(Server | null)[]>([]);
 
   const handleFormSubmit = (event: MouseEvent, data: Credentials): void => {
     event.preventDefault();
@@ -35,26 +35,28 @@ const ThemeProvider: React.FC = ({ children }) => {
 
   const handleTokenQuery = (): void => {
     if (submitted && credentials.username.length > 0 && credentials.password.length > 0) {
-      QueryApi.token(credentials, setAuthentication);
+      QueryApi.token(credentials, setAuthentication, setSorted);
     };
-
-    setSubmitted(false);
   };
 
   const handleDataQuery = (): void => {
-    const portal: HTMLElement = document.getElementById('portal');
-    portal.setAttribute(Aria.HIDDEN, Aria.TRUE);
+    const portal: HTMLElement | null = document.getElementById('portal');
+    portal!.setAttribute(Aria.HIDDEN, Aria.TRUE);
     QueryApi.data(setSorted);
   };
 
-  const handleServerSort = (event: MouseEvent): void => (
-    setSorted(Sort.object(event.target.value, servers))
-  );
+  const handleServerSort = (event: React.ChangeEvent<HTMLSelectElement>): void =>
+    setSorted(Sort.object(event.target.value, servers));
 
   useEffect(() => {
-    Cookie.getToken().length > 0
-      ? handleDataQuery()
-      : handleTokenQuery();
+    if (submitted || Cookie.getToken().length > 0) {
+      Cookie.getToken().length > 0
+        ? handleDataQuery()
+        : handleTokenQuery();
+    };
+
+    setSubmitted(false);
+    setAuthentication(false);
   }, [submitted]);
 
   useEffect(() => {

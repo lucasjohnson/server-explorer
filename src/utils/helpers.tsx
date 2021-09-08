@@ -1,4 +1,4 @@
-import { CookieName, Credentials, SortOption, Server } from './index';
+import { CookieName, Credentials, SortOption, Server, Response } from './index';
 
 export class Cookie {
   public static set = (name: string, value: string, expiry: number): void => {
@@ -29,15 +29,20 @@ export class Cookie {
 };
 
 export class QueryApi {
-  public static token = (credentials: Credentials, setAuthentication: Function): void => {
-    fetch("https://playground.tesonet.lt/v1/tokens", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(credentials)
-    })
-      .then(response => response.json())
+  public static token = (credentials: Credentials, setAuthentication: Function, setSorted: Function): void => {
+    const postData = async (): Promise<Response> => {
+      const response = await fetch("https://playground.tesonet.lt/v1/tokens", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+      });
+
+      return response.json();
+    };
+
+    postData()
       .then(response => {
         if (response.message === 'Unauthorized') {
           setAuthentication(true);
@@ -45,6 +50,9 @@ export class QueryApi {
           setAuthentication(false);
           Cookie.set(CookieName.TOKEN, response.token, 1);
         };
+      })
+      .then(() => {
+        QueryApi.data(setSorted);
       })
       .catch(error => console.warn(error));
   };
@@ -64,15 +72,15 @@ export class QueryApi {
 };
 
 export class Sort {
-  public static object = (type: SortOption.DISTANCE | SortOption.NAME, data: Array): Array<Server> => {
-    let sortedArray: Array<Server> = [];
+  public static object = (type: SortOption.DISTANCE | SortOption.NAME, data: Server[]): Server[] => {
+    let sortedArray: Server[] = [];
 
     if (type === SortOption.DISTANCE) {
-      sortedArray = data.sort((a, b) => (a.distance - b.distance));
+      sortedArray = data.sort((a: Server, b: Server) => (a.distance - b.distance));
     };
 
     if (type === SortOption.NAME) {
-      sortedArray = data.sort((a, b) => {
+      sortedArray = data.sort((a: Server, b: Server) => {
         let aName = a.name.toLowerCase();
         let bName = b.name.toLowerCase();
 

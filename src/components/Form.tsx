@@ -1,16 +1,14 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 import ThemeContext from '../context/ThemeContext';
 import Input from './Input';
 import Button from './Button';
 import Copy from '../data/copy.json';
 
 const Form: React.FC = () => {
-  const formReducer = (state, event) => {
-    return {
-      ...state,
-      [event.name]: event.value
-    };
-  };
+  const formReducer = (state, event) => ({
+    ...state,
+    [event.name]: event.value
+  });
 
   const [data, setData] = useReducer(formReducer, {
     username: '',

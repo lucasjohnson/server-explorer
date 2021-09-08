@@ -8,7 +8,6 @@ const Footer: React.FC = () => (
       <Anchor
         title={Copy.footer.githubTitle}
         url={Copy.footer.githubUrl}
-        className="footer-icon"
       />
     </nav>
   </footer>

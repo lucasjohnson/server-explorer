@@ -4,12 +4,11 @@ import { GoMarkGithub } from 'react-icons/go';
 interface AnchorProps {
   title: string;
   url: string;
-  className: String;
 }
 
-const Anchor: React.FC<AnchorProps> = ({ title, url, className }) => (
+const Anchor: React.FC<AnchorProps> = ({ title, url }) => (
   <a
-    className={className}
+    className="anchor"
     href={url}
     title={`${title} opens in new tab`}
     target="_blank"

@@ -1,6 +1,5 @@
 import React from 'react';
 import ThemeContext from '../context/ThemeContext';
-import Select from './Sort';
 import Copy from '../data/copy.json';
 import { SortOption } from '../utils/index';
 
