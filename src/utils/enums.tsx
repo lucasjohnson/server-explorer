@@ -7,7 +7,7 @@ export enum Aria {
   TRUE = 'true'
 }
 
-export enum SortOptions {
+export enum SortOption {
   NAME = 'name',
   DISTANCE = 'distance'
 }

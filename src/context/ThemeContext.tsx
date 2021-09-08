@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Aria, Cookie, CookieName, Credentials, Errors, QueryApi, Server } from '../utils/index';
+import { Aria, Cookie, CookieName, Credentials, Errors, QueryApi, Server, Sort } from '../utils/index';
 
 const dafaultState = {
   errors: {username: false, password: false},
@@ -16,8 +16,8 @@ const ThemeProvider: React.FC = ({ children }) => {
   const [errors, setErrors] = useState<Errors>({username: false, password: false});
   const [authentication, setAuthentication] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
-  const [data, setData] = useState<Array<Server | null>>([]);
   const [servers, setServers] = useState<Array<Server | null>>([]);
+  const [sorted, setSorted] = useState<Array<Server | null>>([]);
 
   const handleFormSubmit = (event: MouseEvent, data: Credentials): void => {
     event.preventDefault();
@@ -28,7 +28,6 @@ const ThemeProvider: React.FC = ({ children }) => {
         [key]: data[key].length === 0
       }));
     });
-
 
     setCredentials(data);
     setSubmitted(true);
@@ -45,8 +44,12 @@ const ThemeProvider: React.FC = ({ children }) => {
   const handleDataQuery = (): void => {
     const portal: HTMLElement = document.getElementById('portal');
     portal.setAttribute(Aria.HIDDEN, Aria.TRUE);
-    QueryApi.data(setData);
+    QueryApi.data(setSorted);
   };
+
+  const handleServerSort = (event: MouseEvent): void => (
+    setSorted(Sort.object(event.target.value, servers))
+  );
 
   useEffect(() => {
     Cookie.getToken().length > 0
@@ -54,9 +57,9 @@ const ThemeProvider: React.FC = ({ children }) => {
       : handleTokenQuery();
   }, [submitted]);
 
-  const handleServerSort = (event: MouseEvent): void => {
-    console.log(event.target.value);
-  };
+  useEffect(() => {
+    setServers([...sorted]);
+  }, [sorted]);
 
   return (
     <ThemeContext.Provider

@@ -1,4 +1,4 @@
-import { CookieName } from './index';
+import { CookieName, Credentials, SortOption, Server } from './index';
 
 export class Cookie {
   public static set = (name: string, value: string, expiry: number): void => {
@@ -29,7 +29,7 @@ export class Cookie {
 };
 
 export class QueryApi {
-  public static token = (credentials: string[], setAuthentication: Function): void => {
+  public static token = (credentials: Credentials, setAuthentication: Function): void => {
     fetch("https://playground.tesonet.lt/v1/tokens", {
       method: "POST",
       headers: {
@@ -49,14 +49,39 @@ export class QueryApi {
       .catch(error => console.warn(error));
   };
 
-  public static data = (setData: Function): void => {
+  public static data = (setSorted: Function): void => {
     fetch("https://playground.tesonet.lt/v1/servers", {
       headers: {
         authorization: Cookie.getToken()
       }
     })
       .then(response => response.json())
-      .then(data => setData(data))
+      .then(data => {
+        setSorted(Sort.object(SortOption.NAME, data));
+      })
       .catch(error => console.warn(error));
   };
 };
+
+export class Sort {
+  public static object = (type: SortOption.DISTANCE | SortOption.NAME, data: Array): Array<Server> => {
+    let sortedArray: Array<Server> = [];
+
+    if (type === SortOption.DISTANCE) {
+      sortedArray = data.sort((a, b) => (a.distance - b.distance));
+    };
+
+    if (type === SortOption.NAME) {
+      sortedArray = data.sort((a, b) => {
+        let aName = a.name.toLowerCase();
+        let bName = b.name.toLowerCase();
+
+        if (aName < bName) return -1;
+        if (aName > bName) return 1;
+        return 0;
+      });
+    };
+
+    return sortedArray;
+  };
+}

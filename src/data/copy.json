@@ -12,7 +12,8 @@
   },
   "main": {
     "titleName": "Server Name",
-    "titleDistance": "Server Distance"
+    "titleDistance": "Server Distance",
+    "sortLabel": "Sort servers by: "
   },
   "footer": {
     "githubTitle": "Lucas' GitHub profile",
