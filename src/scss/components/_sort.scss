@@ -1,0 +1,13 @@
+.sort {
+  display: flex;
+  padding: 0 $spacing;
+
+  &-label {
+    padding-right: $spacing;
+  }
+
+  @include respond-to('TABLET') {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

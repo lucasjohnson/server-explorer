@@ -14,7 +14,7 @@ export default class extends React.Component {
   componentDidMount = (): void => {
     portalRoot.appendChild(this.el);
     this.el.classList.add('overlay');
-    portalRoot.setAttribute('aria-hidden', 'false');
+    this.el.setAttribute('aria-hidden', 'false');
   }
 
   componentWillUnmount = (): void => {

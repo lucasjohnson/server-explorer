@@ -9,7 +9,8 @@ interface Props {
 };
 
 const Input: React.FC<Props> = ({ name, label, setOnChange, errors, errorMessage }) => (
-  <label className="label">{label}
+  <React.Fragment>
+    <label className="label">{label}</label>
     <input
       className={`input${errors[name] === true ? ' hasError' : ''}`}
       type="text"
@@ -18,7 +19,7 @@ const Input: React.FC<Props> = ({ name, label, setOnChange, errors, errorMessage
       autoComplete="off"
     />
     <span className="error" aria-hidden={!errors[name]}>{errorMessage}</span>
-  </label>
+  </React.Fragment>
 );
 
 export default Input;

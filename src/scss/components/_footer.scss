@@ -1,0 +1,35 @@
+.footer {
+  width: 100%;
+  background-color: #2d333b;
+  position: fixed;
+
+  &-navigation {
+    @include centerFlex("VERTICAL");
+
+    width: 100%;
+    padding: $spacing;
+    margin: 0 auto;
+    justify-content: space-between;
+
+    @include respond-to('TABLET') {
+      max-width: $container-max-width;
+      padding: 16px 0;
+    }
+  }
+
+  .anchor {
+    color: #cdd9e5;
+    opacity: 1;
+    transition: opacity $animation-duration $animation-timing;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    svg {
+      @include size(32px, 32px);
+    }
+  }
+}

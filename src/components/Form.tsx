@@ -46,7 +46,7 @@ const Form: React.FC = () => {
             label={Copy.form.submitButton}
             setOnClick={(event) => handleFormSubmit(event, data)}
           />
-          <span aria-hidden={!authentication}>{Copy.form.authenticationError}</span>
+          <span className="error" aria-hidden={!authentication}>{Copy.form.authenticationError}</span>
         </form>
       )}
     </ThemeContext.Consumer>

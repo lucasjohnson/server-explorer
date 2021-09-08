@@ -40,8 +40,8 @@ const ThemeProvider: React.FC = ({ children }) => {
   };
 
   const handleDataQuery = (): void => {
-    const portal: HTMLElement | null = document.getElementById('portal');
-    portal!.setAttribute(Aria.HIDDEN, Aria.TRUE);
+    const overlay = document.querySelector('.overlay') as HTMLElement;
+    overlay.setAttribute(Aria.HIDDEN, Aria.TRUE);
     QueryApi.data(setSorted);
   };
 

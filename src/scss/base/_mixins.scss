@@ -1,0 +1,51 @@
+@mixin background($color) {
+	background: $color;
+	background-color: $color;
+}
+
+@mixin center($position) {
+	position: absolute;
+
+	@if $position == 'VERTICAL' {
+		top: 50%;
+		transform: translateY(-50%);
+	} @else if $position == 'HORIZONTAL' {
+		left: 50%;
+		transform: translateX(-50%);
+	} @else if $position == 'BOTH' {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@mixin centerFlex($position) {
+  display: flex;
+  @if $position == "VERTICAL" {
+    align-items: center;
+  } @else if $position == "HORIZONTAL" {
+    justify-content: center;
+  } @else if $position == "BOTH" {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@mixin respond-to($size) {
+	@if $size == 'TABLET' {
+		@media screen and (min-width: $breakpoint-tablet) {
+			@content;
+		}
+	} @else if $size == 'DESKTOP' {
+		@media screen and (min-width: $breakpoint-desktop) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}

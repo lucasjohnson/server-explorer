@@ -8,11 +8,11 @@
     "passwordInput": "Password",
     "passwordError": "Please enter a password",
     "submitButton": "Submit",
-    "authenticationError": "Your credentials are not valid. Please try again."
+    "authenticationError": "Your credentials are not valid"
   },
   "main": {
-    "titleName": "Server Name",
-    "titleDistance": "Server Distance",
+    "titleName": "Name",
+    "titleDistance": "Distance to",
     "sortLabel": "Sort servers by: "
   },
   "footer": {

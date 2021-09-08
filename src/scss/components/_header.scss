@@ -1,0 +1,28 @@
+.header {
+  padding-top: $spacing;
+  overflow: hidden;
+
+  &-title {
+		font-size: 32px;
+		font-weight: $font-weight-bold;
+		padding: $spacing / 2 $spacing;
+		margin: 0 0 $spacing;
+    line-height: 1.25;
+    position: relative;
+
+    &:after {
+      @include size(100%, 1px);
+
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: $font-color-base;
+    }
+
+    @include respond-to('TABLET') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+	}
+}

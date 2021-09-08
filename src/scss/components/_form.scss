@@ -1,0 +1,34 @@
+.form {
+  @include center(BOTH);
+
+  width: 100%;
+  max-width: 320px;
+
+  .label {
+    font-size: 20px;
+    display: block;
+    margin-bottom: $spacing;
+  }
+
+  .input {
+
+  }
+
+  .error {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    margin: $spacing 0;
+    transform: visibility $animation-duration $animation-timing, opacity $animation-duration $animation-timing;
+
+    &[aria-hidden="false"] {
+      visibility: visible;
+      opacity: 1;
+    }
+
+  }
+
+  .button {
+    cursor: pointer;
+  }
+}

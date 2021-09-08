@@ -1,0 +1,24 @@
+input {
+	display: inline-block;
+	font-size: $font-size-copy;
+	color: rgba($font-color-base, 0.8);
+	font-weight: $font-weight-light;
+	appearance: none;
+	background-color: $white;
+	border: $border;
+	border-radius: $border-radius;
+	box-sizing: border-box;
+	transition: border-color $animation-duration $animation-timing;
+	width: 100%;
+	padding: 8px 10px;
+	cursor: text;
+	outline: none;
+
+	&:focus {
+		box-shadow: $form-box-shadow;
+	}
+
+	&::placeholder {
+		color: rgba($font-color-base, 0.25);
+	}
+}
