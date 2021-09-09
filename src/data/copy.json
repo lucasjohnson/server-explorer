@@ -3,6 +3,7 @@
     "siteTitle": "Server Explorer"
   },
   "form": {
+    "formTitle": "Sign in",
     "usernameInput": "Username",
     "usernameError": "Please enter a username",
     "passwordInput": "Password",

@@ -1,34 +1,47 @@
 .form {
-  @include center(BOTH);
+  text-align: center;
 
-  width: 100%;
-  max-width: 320px;
+  &-element {
+    width: 100%;
+    max-width: 330px;
+    display: inline-block;
+    padding: 20px;
+    margin-top: $spacing;
+    font-size: $font-size-small;
+    background-color: #161b22;
+    border: $border;
+    border-radius: 6px;
+  }
 
-  .label {
-    font-size: 20px;
-    display: block;
+  &-title {
     margin-bottom: $spacing;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    text-align: center;
   }
 
-  .input {
-
-  }
-
-  .error {
+  &-error {
     display: block;
+    margin: $spacing 0;
+  }
+
+  &-copy {
+    width: 100%;
+    max-width: 330px;
+    display: inline-block;
+    padding: 15px 20px;
+    font-size: $font-size-small;
+    border: 1px solid $alert;
+    background-color: $alert;
+    transition-property: visibility, opacity;
+    transition: $animation-duration $animation-timing;
     visibility: hidden;
     opacity: 0;
-    margin: $spacing 0;
-    transform: visibility $animation-duration $animation-timing, opacity $animation-duration $animation-timing;
 
     &[aria-hidden="false"] {
       visibility: visible;
       opacity: 1;
     }
-
-  }
-
-  .button {
-    cursor: pointer;
   }
 }

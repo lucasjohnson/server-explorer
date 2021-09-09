@@ -1,10 +1,11 @@
 .overlay {
   @include size(100vw, 100vh);
 
+  padding-top: 106px;
   position: fixed;
   top: 0;
   left: 0;
-  background: $black;
+  background: $coal;
   opacity: 1;
   visibility: visible;
 

@@ -1,0 +1,25 @@
+.button {
+  width: 100%;
+  font-size: $font-size-small;
+  font-weight: $font-weight-bold;
+	text-align: center;
+	text-decoration: none;
+	color: $white;
+	display: inline-block;
+	border-radius: 6px;
+	cursor: pointer;
+	user-select: none;
+	white-space: nowrap;
+  margin-top: 20px;
+  background-color: #238636;
+  padding: 6px $spacing;
+  border: 0;
+  opacity: 1;
+  transition: 200s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, opacity;
+
+  &:hover {
+    background-color: #2ea043;
+    opacity: 0.8;
+  }
+}
