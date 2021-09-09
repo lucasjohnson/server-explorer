@@ -3,11 +3,6 @@ export interface Credentials {
   password: string;
 };
 
-export interface Errors {
-  username: boolean;
-  password: boolean;
-};
-
 export interface Server {
   name: string;
   distance: number;

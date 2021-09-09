@@ -29,7 +29,7 @@ export class Cookie {
 };
 
 export class QueryApi {
-  public static token = (credentials: Credentials, setAuthentication: Function, setSorted: Function): void => {
+  public static token = (credentials: Credentials, setError: Function, setSorted: Function): void => {
     const postData = async (): Promise<Response> => {
       const response = await fetch("https://playground.tesonet.lt/v1/tokens", {
         method: 'POST',
@@ -45,9 +45,9 @@ export class QueryApi {
     postData()
       .then(response => {
         if (response.message === 'Unauthorized') {
-          setAuthentication(true);
+          setError(true);
         } else {
-          setAuthentication(false);
+          setError(false);
           Cookie.set(CookieName.TOKEN, response.token, 1);
         };
       })

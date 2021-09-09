@@ -24,7 +24,7 @@ const Form: React.FC = () => {
 
   return (
     <ThemeContext.Consumer>
-      {({ errors, authentication, handleFormSubmit }) => (
+      {({ error, authentication, handleFormSubmit }) => (
         <div className="form">
           <h2 className="form-title">{Copy.form.formTitle}</h2>
           <form className="form-element">
@@ -34,15 +34,11 @@ const Form: React.FC = () => {
               name={Copy.form.usernameInput.toLowerCase()}
               setOnChange={handleChange}
               label={Copy.form.usernameInput}
-              errors={errors}
-              errorMessage={Copy.form.usernameError}
             />
             <Input
               name={Copy.form.passwordInput.toLowerCase()}
               setOnChange={handleChange}
               label={Copy.form.passwordInput}
-              errors={errors}
-              errorMessage={Copy.form.passwordError}
             />
             <Button
               label={Copy.form.submitButton}
@@ -50,7 +46,9 @@ const Form: React.FC = () => {
             />
           </form>
           <div className="form-error">
-            <span className="form-copy" aria-hidden={!authentication}>{Copy.form.authenticationError}</span>
+            <span className="form-copy" aria-hidden={!error}>
+              {Copy.form.authenticationError}
+            </span>
           </div>
         </div>
       )}
