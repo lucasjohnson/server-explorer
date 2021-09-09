@@ -1,4 +1,4 @@
-import { Aria, ClassName, CookieName, Credentials, SortOption, Server, Response } from './index';
+import { Aria, ClassState, CookieName, Credentials, SortOption, Server, Response } from './index';
 
 export class Cookie {
   public static set = (name: string, value: string, expiry: number): void => {
@@ -69,7 +69,7 @@ export class QueryApi {
       .then(response => response.json())
       .then(data => {
         setSorted(Sort.object(SortOption.NAME, data));
-        body.classList.remove(ClassName.IS_FIXED);
+        body.classList.remove(ClassState.IS_FIXED);
         overlay.setAttribute(Aria.HIDDEN, Aria.TRUE);
       })
       .catch(error => console.warn(error));

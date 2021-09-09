@@ -6,19 +6,3 @@
     transform: rotate(360deg);
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .loading {
-    animation: logo-spin infinite 1s linear;
-    color: rgba($black, 0.6);
-    padding: $spacing 0;
-
-    &[aria-hidden="true"] {
-      display: none;
-    }
-
-    svg {
-      @include size($spacing * 4, $spacing * 4);
-    }
-  }
-}

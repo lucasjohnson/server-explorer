@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Aria, Cookie } from '../utils/index';
 
 const portalRoot = typeof document !== `undefined`
   && document.getElementById('portal');
@@ -12,9 +13,11 @@ export default class extends React.Component {
   }
 
   componentDidMount = (): void => {
-    portalRoot.appendChild(this.el);
-    this.el.classList.add('overlay');
-    this.el.setAttribute('aria-hidden', 'false');
+    if (Cookie.getToken().length === 0) {
+      portalRoot.appendChild(this.el);
+      this.el.classList.add('overlay');
+      this.el.setAttribute(Aria.HIDDEN, Aria.FALSE);
+    };
   }
 
   componentWillUnmount = (): void => {

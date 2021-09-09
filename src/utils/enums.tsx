@@ -12,6 +12,6 @@ export enum SortOption {
   DISTANCE = 'distance'
 }
 
-export enum ClassName {
+export enum ClassState {
   IS_FIXED = 'isFixed'
 }
