@@ -24,6 +24,7 @@ A GatsbyJS React app written in TypeScript that retrieves a sortable list of ser
 
 ## Features that Could be Added
 
+- __Unit Testing__: I haven't written tests, but this is a priotiy for me to learn.
 - __Add animations with GSAP__: This would give the site more life, and given the sites limitation of needing to support IE 11, GSAP would work perfectly.
 - __Improve tab indexing__: This currently works as expected because the correct HTML was used, but there needs to be a nicer focus outline, and when the login is open, the user can still navigate the site with tab index while the portal is open.
 - __Custom Select element__: Currently the sort function works with an HTML5 `<select>` element, which works fine. Building something custom would bring it in line with the rest of the sites look. I could also add other sort features to this.
