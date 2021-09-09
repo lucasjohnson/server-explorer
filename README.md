@@ -38,9 +38,5 @@ A GatsbyJS React app written in TypeScript that retrieves a sortable list of ser
 ## Personal Project Examples
 
 - [Gatsby Markdown Blog](https://github.com/lucasjohnson/gatsby-markdown-blog): Gatsby JS, Helmet SEO, Markdown generated content, and advanced tooling to create a great developer experience.
-<<<<<<< HEAD
 - [Upsplash Search](https://github.com/lucasjohnson/upsplash-search): A Create React App that queries the Upsplash API and displays the results as a grid for viewing.
-=======
-- [Upsplash Search](https://github.com/lucasjohnson/upsplash-search). A Create React App that queries the Upsplash API and displays the results as a grid for viewing.
->>>>>>> 1ce82af32e464427ba331cb701e4817fdde8fe9d
 - [Price App](https://github.com/lucasjohnson/price-app): An app built with Fauna DB, graphQL, TypeScript, and React/Gatsby JS.
