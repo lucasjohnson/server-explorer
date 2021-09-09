@@ -1,4 +1,5 @@
-.input {
+.input,
+.sort-select {
 	font-size: $font-size-small;
 	font-weight: $font-weight-light;
 	line-height: 20px;
@@ -19,6 +20,19 @@
 
 	&:focus {
 		border-color: #1f6feb;
+	}
+}
+
+.sort-select {
+	width: auto;
+	margin: 0;
+	max-width: 200px;
+	font-weight: $font-weight-bold;
+	appearance: auto;
+	cursor: pointer;
+
+	&:focus {
+		border-color: transparent;
 	}
 }
 

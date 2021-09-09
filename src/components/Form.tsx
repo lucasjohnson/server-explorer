@@ -28,8 +28,6 @@ const Form: React.FC = () => {
         <div className="form">
           <h2 className="form-title">{Copy.form.formTitle}</h2>
           <form className="form-element">
-            <p>username: tesonet</p>
-            <p>password: partyanimal</p>
             <Input
               name={Copy.form.usernameInput.toLowerCase()}
               setOnChange={handleChange}
