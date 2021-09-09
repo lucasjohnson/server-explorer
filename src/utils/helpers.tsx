@@ -1,4 +1,4 @@
-import { CookieName, Credentials, SortOption, Server, Response } from './index';
+import { Aria, ClassName, CookieName, Credentials, SortOption, Server, Response } from './index';
 
 export class Cookie {
   public static set = (name: string, value: string, expiry: number): void => {
@@ -58,6 +58,9 @@ export class QueryApi {
   };
 
   public static data = (setSorted: Function): void => {
+    const body = document.querySelector('.body') as HTMLElement;
+    const overlay = document.querySelector('.overlay') as HTMLElement;
+
     fetch("https://playground.tesonet.lt/v1/servers", {
       headers: {
         authorization: Cookie.getToken()
@@ -66,6 +69,8 @@ export class QueryApi {
       .then(response => response.json())
       .then(data => {
         setSorted(Sort.object(SortOption.NAME, data));
+        body.classList.remove(ClassName.IS_FIXED);
+        overlay.setAttribute(Aria.HIDDEN, Aria.TRUE);
       })
       .catch(error => console.warn(error));
   };

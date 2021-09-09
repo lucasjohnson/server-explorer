@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Aria, Cookie, Credentials, QueryApi, Server, Sort } from '../utils/index';
+import { Cookie, Credentials, QueryApi, Server, Sort } from '../utils/index';
 
 const dafaultState = {
   error: false,
-  authentication: true,
   handleFormSubmit: (): void => {},
   handleServerSort: (): void => {},
   servers: [],
@@ -22,23 +21,15 @@ const ThemeProvider: React.FC = ({ children }) => {
     event.preventDefault();
     setCredentials(data);
     setSubmitted(true);
-  };
-
-  const handleDataQuery = (): void => {
-    const overlay = document.querySelector('.overlay') as HTMLElement;
-    overlay.setAttribute(Aria.HIDDEN, Aria.TRUE);
-    QueryApi.data(setSorted);
-    console.log('data');
-  };
+  };;
 
   const handleServerSort = (event: React.ChangeEvent<HTMLSelectElement>): void =>
     setSorted(Sort.object(event.target.value, servers));
 
   useEffect(() => {
     if (submitted || Cookie.getToken().length > 0) {
-      console.log(submitted, Cookie.getToken().length > 0);
       Cookie.getToken().length > 0
-        ? handleDataQuery()
+        ? QueryApi.data(setSorted)
         : QueryApi.token(credentials, setError, setSorted);
     };
 
